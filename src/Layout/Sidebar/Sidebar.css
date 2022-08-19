@@ -1,0 +1,17 @@
+:root {
+   --sidebarWidth: 260px;
+}
+
+.sidebar {
+   position: fixed;
+   width: var(--sidebarWidth);
+   min-width: var(--sidebarWidth);
+   color: #f9f9f9; /*#e1e2e3*/
+   min-height: 100vh;
+   text-align: left;
+   font-size: .95rem;
+   border-right: 2px solid #fff;
+   padding-top: 80px;
+   background-color: rgb(33,37,41);
+   z-index: 100;
+}

@@ -1,0 +1,35 @@
+.nav-link{
+   padding: 17px 15px !important;
+   border-bottom: 1px solid gray !important;
+   transition: .3s ease !important;
+}
+
+button.nav-link{
+   color: #f9f9f9;
+   background: transparent;
+   border: none;
+}
+
+button.nav-link:hover{
+   color: #f9f9f9;
+}
+
+button.nav-link:focus{
+   color: #f9f9f9;
+}
+
+button.nav-link.active{
+   background-color: #3e4042;
+   border-right: 5px solid #0d6efd;
+   transition: .3s ease;
+}
+
+.nav-link:first-child{
+   border-top: 1px solid gray;
+}
+
+.nav-link:hover{
+   background-color: #3e4042;
+   border-right: 5px solid #0d6efd;
+   transition: .3s ease;
+}
