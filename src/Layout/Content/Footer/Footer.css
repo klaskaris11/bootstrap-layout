@@ -1,0 +1,11 @@
+.footer-container {
+    border-top: 1px solid #e4eaec;
+    bottom: 0;
+    font-size: .875rem;
+    left: 0;
+    margin-left: 260px;
+    position: absolute;
+    right: 0;
+    transition: .3s ease;
+    z-index: 109;
+}

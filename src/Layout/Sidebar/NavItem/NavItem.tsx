@@ -3,6 +3,7 @@ import './NavItem.css';
 
 type Props = {
    text: string,
+   faIconClass?: string,
    isActive?: boolean,
    onClick: Function
 }
@@ -10,9 +11,12 @@ type Props = {
 const NavItem = (props: Props) => {
    const active = props.isActive ? props.isActive : false;
    return <button
-      className={`nav-link${active ? " active" : ""}`}
+      className={`nav-link nav-button${active ? " active" : ""}`}
       onClick={()=> props.onClick}
    >
+      {
+         props.faIconClass && <i className={`me-2 ${props.faIconClass}`} />
+      }
       {props.text}
    </button>;
 };

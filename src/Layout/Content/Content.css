@@ -1,0 +1,8 @@
+.content-wrapper{
+    margin-left: 260px;
+    min-height: 100vh;
+    overflow: hidden;
+    text-align: left;
+    transition: .3s ease;
+    /* padding: 20px; */
+}

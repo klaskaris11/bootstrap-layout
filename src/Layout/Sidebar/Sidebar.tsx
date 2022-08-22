@@ -25,6 +25,7 @@ const Sidebar = (props: Props) => {
          <Nav>
             <NavItem
                text={PathEntry.home.pageTitle}
+               faIconClass={PathEntry.home.navFAIconClass}
                isActive={location.pathname === PathEntry.home.path}
                onClick={() => navigate(PathEntry.home.path)}
             />

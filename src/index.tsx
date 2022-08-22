@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
+// Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Fontawesome icons
+import './Assets/Vendors/Fontawesome/css/fa-brands.css';
+import './Assets/Vendors/Fontawesome/css/fa-regular.css';
+import './Assets/Vendors/Fontawesome/css/fa-solid.css';
+import './Assets/Vendors/Fontawesome/css/fontawesome.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
