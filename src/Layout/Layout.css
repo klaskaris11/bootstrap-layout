@@ -1,7 +1,28 @@
 .main-layout {
-   position: relative;
-   width: 100%;
-   height: auto;
-   min-height: 100%;
-   overflow: hidden;
- }
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.sidebar-toggler-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px
+}
+
+.sidebar-toggler{
+  padding: 6px 13px;
+  text-align: center;
+  border: 2px solid #ccc;
+  color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sidebar-toggler:hover{
+  background-color: #3e4042;
+  transition: .3s;
+}

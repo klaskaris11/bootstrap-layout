@@ -1,5 +1,6 @@
 :root {
    --sidebarWidth: 260px;
+   --narrowSidebarWidth: 120px;
 }
 
 .sidebar {
@@ -14,4 +15,11 @@
    padding-top: 0 80px 80px 80px;
    background-color: rgb(33,37,41);
    z-index: 100;
+   transition: .3s;
+}
+
+.sidebar.sidebar-narrow{
+   width: var(--narrowSidebarWidth);
+   min-width: var(--narrowSidebarWidth);
+   transition: .3s;
 }

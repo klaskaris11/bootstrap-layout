@@ -6,3 +6,12 @@
     transition: .3s ease;
     /* padding: 20px; */
 }
+
+.content-wrapper-narrow{
+    margin-left: 120px;
+    min-height: 100vh;
+    overflow: hidden;
+    text-align: left;
+    transition: .3s ease;
+    /* padding: 20px; */
+}

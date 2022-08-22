@@ -1,15 +1,35 @@
-import * as React from 'react';
 import { useLocation } from 'react-router';
+import {
+    connect,
+    ConnectedProps
+ } from "react-redux";
 import './Content.css';
 
-import { withRouter } from '../../Utils/router-util';
+import { withRouter, RoutedProps } from '../../Utils/router-util';
 import { PathEntryProperty } from '../../routes';
 import { Row } from '../../Components/UI/Grid/Grid';
 import PageHeader from './PageHeader/PageHeader';
 import Footer from './Footer/Footer';
 import { getPathEntryFromPath } from '../../routes';
+import { UIReducerState } from '../../Store/Reducers/UIReducer';
+import { Constants } from '../../Constants';
 
-const Content = () => {
+type MapStateToProps = {
+    width: number
+ };
+ 
+ const mapStateToProps = (state: UIReducerState): MapStateToProps => {
+    return {
+       width: state.width,
+    };
+ };
+  
+ const connector = connect(mapStateToProps);
+ 
+ type PropsFromRedux = ConnectedProps<typeof connector>;
+ type Props = PropsFromRedux & RoutedProps;
+
+const Content = (props: Props) => {
     const location = useLocation();
 
     const getPageTitle = () => {
@@ -22,9 +42,7 @@ const Content = () => {
         return pathEntry?.pageSubtitle;
     }
 
-    getPageTitle();
-
-    return <section className='content-wrapper bg-light'>
+    return <section className={`content-wrapper${props.width === Constants.NARROW_SIDEBAR_WIDTH ? " content-wrapper-narrow" : ""} bg-light`}>
         <PageHeader
             title={getPageTitle()}
             subtitle={getPageSubtitle()}
@@ -38,4 +56,4 @@ const Content = () => {
     </section>;
 };
 
-export default withRouter(Content);
+export default connector(withRouter(Content));
