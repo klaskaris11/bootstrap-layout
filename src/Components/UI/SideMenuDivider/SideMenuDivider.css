@@ -1,0 +1,18 @@
+.menu-divider {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14.5px;
+    color: rgb(156,163,175);
+    font-weight: 400;
+    margin-bottom: 5px;
+ }
+ 
+ .menu-divider:before, .menu-divider:after {
+    content: '';
+    border-top: 1px solid rgb(156,163,175);
+    margin: 4px 20px 0px 18px;
+    flex: 1 0 20px;
+ }

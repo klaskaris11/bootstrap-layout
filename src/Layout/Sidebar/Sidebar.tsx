@@ -10,6 +10,7 @@ import {
 
 import Nav from './Nav/Nav';
 import NavItem from './NavItem/NavItem';
+import SideMenuDivider from '../../Components/UI/SideMenuDivider/SideMenuDivider';
 import {
    withRouter,
    RoutedProps
@@ -53,6 +54,10 @@ const Sidebar = (props: Props) => {
          props.setSidebarWidth(Constants.WIDDE_SIDEBAR_WIDTH)
    }
 
+   const getPathEntryAsObjectKeys = () => {
+      return Object.keys(PathEntry);
+   }
+   getPathEntryAsObjectKeys();
    return (
       <div className={`sidebar${props.width === Constants.NARROW_SIDEBAR_WIDTH ? " sidebar-narrow" : ""}`}>
          <Nav>
@@ -61,18 +66,18 @@ const Sidebar = (props: Props) => {
                   <i className={`fas ${props.width === Constants.NARROW_SIDEBAR_WIDTH ? "fa-chevron-right" : "fa-chevron-left"}`}></i>
                </div>
             </div>
-            <NavItem
-               text={PathEntry.home.pageTitle}
-               faIconClass={PathEntry.home.navFAIconClass}
-               isActive={location.pathname === PathEntry.home.path}
-               onClick={() => navigate(PathEntry.home.path)}
-            />
-            <NavItem
-               text={PathEntry.testPage.pageTitle}
-               faIconClass={PathEntry.testPage.navFAIconClass}
-               isActive={location.pathname === PathEntry.testPage.path}
-               onClick={() => navigate(PathEntry.testPage.path)}
-            />
+            <SideMenuDivider text='Main Menu'/>
+            {
+               getPathEntryAsObjectKeys().map((key: string, idx: number) => {
+                  return <NavItem
+                     text={PathEntry[key].pageTitle}
+                     faIconClass={PathEntry[key].navFAIconClass}
+                     isActive={location.pathname === PathEntry[key].path}
+                     onClick={() => navigate(PathEntry[key].path)}
+                     key={idx}
+                  />
+               })
+            }
          </Nav>
       </div>
    );
