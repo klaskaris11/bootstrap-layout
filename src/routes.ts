@@ -1,4 +1,5 @@
 import Home from './Views/Home/Home';
+import TestPage from './Views/TestPage/TestPage';
 
 export type PathEntryProperty = {
     path: string,
@@ -23,7 +24,15 @@ export const DefaultPathEntry: PathEntryProperty = {
 }
 
 export const PathEntry: PathEntry = {
-    home: DefaultPathEntry
+    home: DefaultPathEntry,
+    testPage: {
+        path: "/test-page",
+        pageTitle: "Test Page",
+        pageSubtitle: "This is a test page",
+        navFAIconClass: "fas fa-tachometer-alt",
+        includeInViewNavigation: false,
+        component: TestPage
+    }
 }
 
 export const getPathEntryFromPath = (path: string): PathEntryProperty => {

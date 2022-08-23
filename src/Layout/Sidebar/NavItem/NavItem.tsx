@@ -36,7 +36,7 @@ const NavItem = (props: Props) => {
 
    return <button
       className={`nav-link nav-button${active ? " active" : ""} text-${iconAlignment}`}
-      onClick={() => props.onClick}
+      onClick={() => props.onClick()}
    >
       {
          props.faIconClass && <i className={`me-2 ${props.faIconClass} ${props.width === Constants.NARROW_SIDEBAR_WIDTH && "fa-1_5x"}`} />

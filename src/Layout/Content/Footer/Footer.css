@@ -3,7 +3,7 @@
     bottom: 0;
     font-size: .875rem;
     left: 0;
-    margin-left: 260px;
+    margin-left: var(--sidebarWidth);
     position: absolute;
     right: 0;
     transition: .3s ease;

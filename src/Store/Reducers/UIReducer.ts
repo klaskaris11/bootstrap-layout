@@ -1,12 +1,14 @@
 import { ActionTypeKey } from "../Actions/ActionTypeKeys";
 import { Action } from '../Actions/ActionTypes';
 
+import { Constants } from "../../Constants";
+
 export type UIReducerState = {
     width: number;
 };
 
 const initialState = {
-    width: 260
+    width: Constants.WIDDE_SIDEBAR_WIDTH
 };
 
 const setSidebarWidth = (state: UIReducerState, action: Action) => {

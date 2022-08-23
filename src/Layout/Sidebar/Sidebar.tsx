@@ -68,12 +68,10 @@ const Sidebar = (props: Props) => {
                onClick={() => navigate(PathEntry.home.path)}
             />
             <NavItem
-               text="Link1"
-               onClick={() => console.log("clicked")}
-            />
-            <NavItem
-               text="Link2"
-               onClick={() => console.log("clicked")}
+               text={PathEntry.testPage.pageTitle}
+               faIconClass={PathEntry.testPage.navFAIconClass}
+               isActive={location.pathname === PathEntry.testPage.path}
+               onClick={() => navigate(PathEntry.testPage.path)}
             />
          </Nav>
       </div>
