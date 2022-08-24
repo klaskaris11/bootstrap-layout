@@ -1,13 +1,12 @@
 .nav-link {
    padding: 17px 15px !important;
-   /* border-bottom: 1px solid rgb(156,163,175) !important; */
    transition: .3s ease !important;
    min-width: 120px;
    width: 100%;
 }
 
 .nav-button {
-   color: rgb(156,163,175) !important;
+   color: var(--themeTextColorGray) !important;
    font-weight: 500 !important;
    background: transparent;
    border: none;
@@ -15,11 +14,11 @@
 }
 
 button.nav-link:hover {
-   color: #f1f1f1 !important;
+   color: #f5f5f5 !important;
 }
 
 button.nav-link.active {
-   background-color: rgba(229,231,235, .2);
+   background-color: var(--navHoverAndActiveColor);
    transition: .3s ease;
    color: #f5f5f5 !important;
 }
@@ -29,7 +28,7 @@ button.nav-link.active {
 } */
 
 .nav-link:hover {
-   background-color: rgba(229,231,235, .2);
+   background-color: var(--navHoverAndActiveColor);
    transition: .3s ease;
 }
 

@@ -8,7 +8,7 @@ type Props = {
 }
 
 const PageHeader = (props: Props) => {
-    return <div className="d-flex flex-wrap border-bottom border-2 mb-4 align-items-center p-4" >
+    return <div className="d-flex flex-wrap border-bottom mb-4 align-items-center p-4 shadow-sm" >
         <div className="">
             <h4 className={`font-weight-600${props.subtitle ? " mb-2" : " mb-0"}`}>{props.title}</h4>
             {

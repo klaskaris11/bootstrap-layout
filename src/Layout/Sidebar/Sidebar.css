@@ -1,19 +1,13 @@
-:root {
-   --sidebarWidth: 240px;
-   --narrowSidebarWidth: 110px;
-}
-
 .sidebar {
    position: fixed;
    width: var(--sidebarWidth);
    min-width: var(--sidebarWidth);
-   color: rgba(156, 163, 175);
+   color: var(--themeTextColorGray);
    min-height: 100vh;
    text-align: left;
    font-size: .95rem;
    border-right: 2px solid #fff;
-   padding-top: 0 80px 80px 80px;
-   background-color: rgba(17, 24, 39);
+   background-color: var(--themeColorDark);
    z-index: 100;
    transition: .3s;
 }
@@ -42,7 +36,7 @@
 }
 
 .sidebar-toggler:hover {
-   background-color: rgba(229, 231, 235, .2);
+   background-color: var(--navHoverAndActiveColor);
    color: #f5f5f5;
    transition: .3s;
 }

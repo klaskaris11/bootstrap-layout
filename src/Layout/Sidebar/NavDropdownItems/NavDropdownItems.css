@@ -19,16 +19,16 @@
 }
 
 span.nav-link:hover {
-    color: #f1f1f1 !important;
+    color: #f5f5f5 !important;
  }
  
  span.nav-link.active {
-    background-color: rgba(229,231,235, .2);
+    background-color: var(--navHoverAndActiveColor);
     transition: .3s ease;
     color: #f5f5f5 !important;
  }
 
  .subnav-title{
-    color: rgba(17, 24, 39) !important;
+    color: var(--themeColorDark) !important;
     border-bottom: 1px solid black;
  }

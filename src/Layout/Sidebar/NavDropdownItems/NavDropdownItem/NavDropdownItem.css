@@ -1,6 +1,6 @@
 .nav-dropdown-link{
     padding: 7px 15px !important;
-    color: rgba(17, 24, 39) !important;
+    color: var(--themeColorDark) !important;
 }
 
 .nav-dropdown-link:hover {
@@ -9,7 +9,7 @@
  }
 
 .nav-dropdown-link:focus{
-    color: rgba(17, 24, 39) !important;
+    color: var(--themeColorDark) !important;
 }
 
 .nav-dropdown-link.active {
