@@ -94,7 +94,7 @@ const NavDropdownItems = (props: Props) => {
                         isActive={location.pathname === props.submenu[key].path}
                         onClick={() => {
                             navigate(props.submenu[key].path);
-                            setIsChildMenuOpen(true);
+                            setIsChildMenuOpen(false);
                         }}
                         key={idx}
                     />

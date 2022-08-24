@@ -70,7 +70,7 @@ const Sidebar = (props: Props) => {
    return (
       <div className={`sidebar${isSidebarNarrow(props.width) ? " sidebar-narrow" : ""}`}>
          <Nav>
-            <div className='sidebar-toggler-wrapper'>
+            <div title={isSidebarNarrow(props.width) ? "Επέκταση Μενού" : "Μάζεμα Μενού"} className='sidebar-toggler-wrapper'>
                <div className='sidebar-toggler' onClick={() => HandleTogglerClick()}>
                   <i className={`fas ${isSidebarNarrow(props.width) ? "fa-chevron-right" : "fa-chevron-left"}`}></i>
                </div>

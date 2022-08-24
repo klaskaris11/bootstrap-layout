@@ -8,7 +8,7 @@ export type UIReducerState = {
 };
 
 const initialState = {
-    width: Constants.WIDDE_SIDEBAR_WIDTH
+    width: Constants.WIDDE_SIDEBAR_WIDTH as number
 };
 
 const setSidebarWidth = (state: UIReducerState, action: Action) => {

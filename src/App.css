@@ -12,4 +12,5 @@
 hr{
     color: rgb(156,163,175) !important;
     opacity: unset !important;
+    width: 100%;
 }
