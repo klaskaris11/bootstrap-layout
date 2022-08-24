@@ -43,6 +43,7 @@
 }
 
 .sidebar-toggler:hover {
-   background-color: #3e4042;
+   background-color: rgba(229,231,235, .2);
+   color: #f5f5f5;
    transition: .3s;
 }

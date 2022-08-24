@@ -1,0 +1,18 @@
+.nav-dropdown-link{
+    padding: 7px 15px !important;
+    color: rgba(17, 24, 39) !important;
+}
+
+.nav-dropdown-link:hover {
+    background-color: #e5e5e5;
+    transition: .3s ease;
+ }
+
+.nav-dropdown-link:focus{
+    color: rgba(17, 24, 39) !important;
+}
+
+.nav-dropdown-link.active {
+    background-color: #e5e5e5;
+    transition: .3s ease;
+ }

@@ -7,20 +7,22 @@ import {
    connect,
    ConnectedProps
 } from "react-redux";
+import { has } from 'lodash';
+import './Sidebar.css';
 
 import Nav from './Nav/Nav';
 import NavItem from './NavItem/NavItem';
+import NavDropdownItem from './NavDropdownItems/NavDropdownItems';
 import SideMenuDivider from '../../Components/UI/SideMenuDivider/SideMenuDivider';
 import {
    withRouter,
    RoutedProps
 } from '../../Utils/router-util';
 import { PathEntry } from '../../routes';
-
-import './Sidebar.css';
 import { UIReducerState } from '../../Store/Reducers/UIReducer';
 import { setSidebarWidth } from '../../Store/Actions/UI';
 import { Constants } from '../../Constants';
+import { isSidebarNarrow } from '../../Utils/LayoutUtils/LayoutUtils';
 
 type MapStateToProps = {
    width: number
@@ -48,34 +50,50 @@ const Sidebar = (props: Props) => {
    const navigate = useNavigate();
 
    const HandleTogglerClick = () => {
-      if (props.width === Constants.WIDDE_SIDEBAR_WIDTH)
+      if (!isSidebarNarrow(props.width))
          props.setSidebarWidth(Constants.NARROW_SIDEBAR_WIDTH)
       else
          props.setSidebarWidth(Constants.WIDDE_SIDEBAR_WIDTH)
    }
 
-   const getPathEntryAsObjectKeys = () => {
+   const getPathEntryAsObjectKeys = (): string[] => {
       return Object.keys(PathEntry);
    }
-   getPathEntryAsObjectKeys();
+
+   const getSubmenuPaths = (key: string) => {
+      const submenus: PathEntry = PathEntry[key].submenu!;
+      return Object.keys(submenus).map((submenuKey: string) => {
+         return submenus[submenuKey].path;
+      })
+   }
+
    return (
-      <div className={`sidebar${props.width === Constants.NARROW_SIDEBAR_WIDTH ? " sidebar-narrow" : ""}`}>
+      <div className={`sidebar${isSidebarNarrow(props.width) ? " sidebar-narrow" : ""}`}>
          <Nav>
             <div className='sidebar-toggler-wrapper'>
                <div className='sidebar-toggler' onClick={() => HandleTogglerClick()}>
-                  <i className={`fas ${props.width === Constants.NARROW_SIDEBAR_WIDTH ? "fa-chevron-right" : "fa-chevron-left"}`}></i>
+                  <i className={`fas ${isSidebarNarrow(props.width) ? "fa-chevron-right" : "fa-chevron-left"}`}></i>
                </div>
             </div>
-            <SideMenuDivider text='Main Menu'/>
+            <SideMenuDivider text='Main Menu' />
             {
                getPathEntryAsObjectKeys().map((key: string, idx: number) => {
-                  return <NavItem
-                     text={PathEntry[key].pageTitle}
-                     faIconClass={PathEntry[key].navFAIconClass}
-                     isActive={location.pathname === PathEntry[key].path}
-                     onClick={() => navigate(PathEntry[key].path)}
-                     key={idx}
-                  />
+                  return has(PathEntry[key], "submenu")
+                     ? <NavDropdownItem
+                        text={PathEntry[key].pageTitle}
+                        faIconClass={PathEntry[key].navFAIconClass}
+                        isActive={getSubmenuPaths(key).includes(location.pathname)}
+                        onClick={() => navigate(PathEntry[key].path)}
+                        submenu={PathEntry[key].submenu!}
+                        key={idx}
+                     />
+                     : <NavItem
+                        text={PathEntry[key].pageTitle}
+                        faIconClass={PathEntry[key].navFAIconClass}
+                        isActive={location.pathname === PathEntry[key].path}
+                        onClick={() => navigate(PathEntry[key].path)}
+                        key={idx}
+                     />
                })
             }
          </Nav>

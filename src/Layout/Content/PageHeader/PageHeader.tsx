@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Row, Col } from '../../../Components/UI/Grid/Grid';
 
 type Props = {

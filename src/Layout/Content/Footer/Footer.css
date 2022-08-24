@@ -9,3 +9,7 @@
     transition: .3s ease;
     z-index: 109;
 }
+
+.content-container-narrow {
+    margin-left: var(--narrowSidebarWidth);
+}

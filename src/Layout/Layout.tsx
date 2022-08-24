@@ -1,11 +1,8 @@
-import * as React from 'react';
 import './Layout.css';
 import Sidebar from './Sidebar/Sidebar';
 import Content from './Content/Content';
 
-type Props = {}
-
-const Layout = (props: Props) => {
+const Layout = () => {
    return (
       <div className='main-layout'>
          <Sidebar />

@@ -6,6 +6,7 @@ import './NavItem.css';
 
 import { UIReducerState } from '../../../Store/Reducers/UIReducer';
 import { Constants } from '../../../Constants';
+import { isSidebarNarrow } from '../../../Utils/LayoutUtils/LayoutUtils';
 
 type MapStateToProps = {
    width: number
@@ -21,7 +22,8 @@ type OwnProps = {
    text: string,
    faIconClass?: string,
    isActive?: boolean,
-   onClick: Function
+   onClick: Function,
+   submenuTitle?: string,
 }
 
 const connector = connect(mapStateToProps);
@@ -31,7 +33,7 @@ type Props = OwnProps & PropsFromRedux;
 
 const NavItem = (props: Props) => {
 
-   const iconAlignment = props.width === Constants.WIDDE_SIDEBAR_WIDTH ? "left" : "center";
+   const iconAlignment = !isSidebarNarrow(props.width) ? "left" : "center";
    const active = props.isActive ? props.isActive : false;
 
    return <button
@@ -39,11 +41,13 @@ const NavItem = (props: Props) => {
       onClick={() => props.onClick()}
    >
       {
-         props.faIconClass && <i className={`me-2 ${props.faIconClass} ${props.width === Constants.NARROW_SIDEBAR_WIDTH && "fa-1_5x"}`} />
+         props.faIconClass && <i className={`me-2 ${props.faIconClass} ${isSidebarNarrow(props.width) && "fa-1_5x"}`} />
       }
       {
-         props.width === Constants.WIDDE_SIDEBAR_WIDTH
-            ? props.text
+         !isSidebarNarrow(props.width)
+            ? props.submenuTitle
+               ? <>{props.text} <i className="fas fa-angle-down float-end me-2 position-relative" style={{ top: 5 }}></i></>
+               : props.text
             : null
       }
    </button>;
